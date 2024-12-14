@@ -7,12 +7,14 @@ import { download, CancelError } from 'electron-dl'
 export function poe2Launch(win: BrowserWindow, url: string): void {
   // Url Unescape
   const unescapedUrl = decodeURIComponent(url).replace('daumgamestarter://', '')
+  console.log('Unescaped Url:', unescapedUrl)
 
   // '|' Split
-  const [gameCode, gameStatus, execute, userCode] = unescapedUrl.split('|')
+  const [gameCode, gameStatus, execute, token, userCode] = unescapedUrl.split('|')
   console.log('Game Code:', gameCode)
   console.log('Game Status:', gameStatus)
   console.log('Execute:', execute)
+  console.log('Token:', token)
   console.log('User Code:', userCode)
 
   const executeKakao = 'PathOfExile_x64_KG.exe'
@@ -48,6 +50,7 @@ export function poe2Launch(win: BrowserWindow, url: string): void {
         if (response.response === 1) {
           spawn(`${path.join('C:\\Daum Games\\Path of Exile2', executeKakao)}`, [
             '--kakao',
+            token,
             userCode
           ])
         }
