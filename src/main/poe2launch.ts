@@ -29,9 +29,11 @@ export function poe2Launch(win: BrowserWindow, url: string): void {
       })
       .then((response) => {
         if (response.response === 0) {
-          spawn(`${path.join('C:\\Daum Games\\Path of Exile2', executeKakao)} --kakao ${userCode}`)
+          spawn(
+            `"${path.join('C:\\Daum Games\\Path of Exile2', executeKakao)}" --kakao ${userCode}`
+          )
         } else {
-          spawn(`${path.join('C:\\Daum Games\\Path of Exile2', execute)} --kakao ${userCode}`)
+          spawn(`"${path.join('C:\\Daum Games\\Path of Exile2', execute)}" --kakao ${userCode}`)
         }
       })
   } else {
