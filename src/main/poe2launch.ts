@@ -1,6 +1,6 @@
 import { app, BrowserWindow, dialog } from 'electron'
 import * as fs from 'fs'
-import { exec, spawn } from 'child_process'
+import { exec, execFile, spawn } from 'child_process'
 import * as path from 'path'
 import { download, CancelError } from 'electron-dl'
 
@@ -23,17 +23,26 @@ export function poe2Launch(win: BrowserWindow, url: string): void {
     dialog
       .showMessageBox(win, {
         type: 'question',
-        buttons: ['spawn', 'spawn2', 'exec'],
+        buttons: ['execFile', 'spawn2', 'exec'],
         defaultId: 0,
         title: 'Path of Exile 2',
         message: '어떤 클라이언트로 실행할까요?'
       })
       .then((response) => {
         if (response.response === 0) {
-          spawn(
+          execFile(
             `${path.join('C:\\Daum Games\\Path of Exile2', executeKakao)}`,
             ['--kakao', userCode],
-            { shell: true }
+            (error, stdout) => {
+              if (error) {
+                dialog.showMessageBox(win, {
+                  type: 'error',
+                  title: 'Path of Exile 2',
+                  message: '실행 중 오류가 발생했습니다\n\n' + error.message
+                })
+              }
+              console.log(stdout)
+            }
           )
         }
         if (response.response === 1) {
