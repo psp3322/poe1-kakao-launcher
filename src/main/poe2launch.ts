@@ -24,7 +24,7 @@ export function poe2Launch(win: BrowserWindow, url: string): void {
     dialog
       .showMessageBox(win, {
         type: 'question',
-        buttons: [executeKakao64, executeKakao32],
+        buttons: [executeKakao64, executeKakao32, execute],
         defaultId: 0,
         title: 'Path of Exile 2',
         message: '어떤 클라이언트로 실행할까요?'
@@ -39,6 +39,13 @@ export function poe2Launch(win: BrowserWindow, url: string): void {
         }
         if (response.response === 1) {
           spawn(`${path.join('C:\\Daum Games\\Path of Exile2', executeKakao32)}`, [
+            '--kakao',
+            token,
+            userCode
+          ])
+        }
+        if (response.response === 2) {
+          spawn(`${path.join('C:\\Daum Games\\Path of Exile2', execute)}`, [
             '--kakao',
             token,
             userCode
