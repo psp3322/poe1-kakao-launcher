@@ -13,6 +13,11 @@ asarUnpack:
   - resources/**
 win:
   executableName: poe2-kakao-launcher
+  target:
+    - nsis
+    - portable
+  include:
+    - build/installer.nsh
 nsis:
   artifactName: ${name}-${version}-setup.${ext}
   shortcutName: ${productName}
