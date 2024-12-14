@@ -14,6 +14,14 @@ export function getAutoUpdater(): AppUpdater {
 
 const log = require('electron-log')
 
+// 파라메터 분석 (--whisky)
+const paramUseInMacWhisky = process.argv.includes('--whisky')
+if (paramUseInMacWhisky) {
+  app.commandLine.appendArgument('--in-process-gpu')
+  app.commandLine.appendArgument('--disable-gpu')
+  app.commandLine.appendArgument('--no-sandbox')
+}
+
 function createWindow(): void {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
@@ -63,13 +71,6 @@ function createWindow(): void {
   // HMR for renderer base on electron-vite cli.
   // Load the remote URL for development or the local html file for production.
   mainWindow.loadURL('https://poe2.game.daum.net')
-}
-
-// 파라메터 분석 (--whisky)
-const paramUseInMacWhisky = process.argv.includes('--whisky')
-if (paramUseInMacWhisky) {
-  app.disableHardwareAcceleration()
-  app.commandLine.appendArgument('--no-sandbox')
 }
 
 // This method will be called when Electron has finished
