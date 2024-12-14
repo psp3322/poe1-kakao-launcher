@@ -1,4 +1,4 @@
-import { app, BrowserWindow, dialog, shell } from 'electron'
+import { app, BrowserWindow, dialog } from 'electron'
 import * as fs from 'fs'
 import { exec, spawn } from 'child_process'
 import * as path from 'path'
@@ -16,13 +16,14 @@ export function poe2Launch(win: BrowserWindow, url: string): void {
   console.log('User Code:', userCode)
 
   const executeKakao = 'PathOfExile_x64_KG.exe'
+  const executeCmd = `"${path.join('C:\\Daum Games\\Path of Exile2', executeKakao)}" --kakao ${userCode}`
+  console.log('Execute Command:', executeCmd)
 
   if (poe2IsInstalled(executeKakao)) {
-    const executeCmd = `"${path.join('C:\\Daum Games\\Path of Exile2', executeKakao)}" --kakao ${userCode}`
     dialog
       .showMessageBox(win, {
         type: 'question',
-        buttons: ['spawn', 'exec', 'shell.openExternal', 'shell.openPath'],
+        buttons: ['spawn', 'exec', 'exec2', 'exec3'],
         defaultId: 0,
         title: 'Path of Exile 2',
         message: '어떤 클라이언트로 실행할까요?'
@@ -32,13 +33,15 @@ export function poe2Launch(win: BrowserWindow, url: string): void {
           spawn(executeCmd)
         }
         if (response.response === 1) {
-          exec(executeCmd)
+          exec(`"${path.join('C:\\Daum Games\\Path of Exile2', executeKakao)}" --kakao ${userCode}`)
         }
         if (response.response === 2) {
-          shell.openExternal(executeCmd)
+          exec(`"${path.join('C:\\Daum Games\\Path of Exile2', executeKakao)} --kakao ${userCode}"`)
         }
         if (response.response === 3) {
-          shell.openPath(executeCmd)
+          exec(
+            `""${path.join('C:\\Daum Games\\Path of Exile2', executeKakao)}" --kakao ${userCode}"`
+          )
         }
       })
   } else {
