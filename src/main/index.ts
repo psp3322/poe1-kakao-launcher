@@ -65,11 +65,11 @@ function createWindow(): void {
   mainWindow.loadURL('https://poe2.game.daum.net')
 }
 
-// 파라메터 분석 (--in-process-gpu)
+// 파라메터 분석 (--whisky)
 const paramUseInMacWhisky = process.argv.includes('--whisky')
 if (paramUseInMacWhisky) {
-  app.commandLine.appendSwitch('in-process-gpu')
-  app.commandLine.appendSwitch('no-sandbox')
+  app.disableHardwareAcceleration()
+  app.commandLine.appendArgument('--no-sandbox')
 }
 
 // This method will be called when Electron has finished
