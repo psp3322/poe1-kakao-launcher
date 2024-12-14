@@ -66,11 +66,10 @@ function createWindow(): void {
 }
 
 // 파라메터 분석 (--in-process-gpu)
-const paramInUseGpu = process.argv.includes('--in-process-gpu')
-if (paramInUseGpu) {
+const paramUseInMacWhisky = process.argv.includes('--whisky')
+if (paramUseInMacWhisky) {
   app.commandLine.appendSwitch('in-process-gpu')
-  app.commandLine.appendSwitch('disable-gpu')
-  app.commandLine.appendSwitch('disable-software-rasterizer')
+  app.commandLine.appendSwitch('no-sandbox')
 }
 
 // This method will be called when Electron has finished
