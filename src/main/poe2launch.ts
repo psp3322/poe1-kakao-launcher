@@ -17,6 +17,7 @@ export function poe2Launch(win: BrowserWindow, url: string): void {
   console.log('Token:', token)
   console.log('User Code:', userCode)
 
+  const gamePath = 'C:\\Daum Games\\Path of Exile2'
   const executeKakao64 = 'PathOfExile_x64_KG.exe'
 
   if (poe2IsInstalled(executeKakao64)) {
@@ -30,14 +31,14 @@ export function poe2Launch(win: BrowserWindow, url: string): void {
       })
       .then((response) => {
         if (response.response === 0) {
-          spawn(`${path.join('C:\\Daum Games\\Path of Exile2', executeKakao64)}`, [
-            '--kakao',
-            token,
-            userCode
-          ])
+          spawn(`${path.join(gamePath, executeKakao64)}`, ['--kakao', token, userCode], {
+            cwd: gamePath
+          })
         }
         if (response.response === 1) {
-          spawn(`${path.join('C:\\Daum Games\\Path of Exile2', executeKakao64)}`)
+          spawn(`${path.join(gamePath, executeKakao64)}`, {
+            cwd: gamePath
+          })
         }
       })
   } else {
