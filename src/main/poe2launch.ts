@@ -73,6 +73,7 @@ function poe2IsInstalled(execute: string): boolean {
     return true
   }
 
+  console.log('Path of Exile 2 is not installed')
   return false
 }
 
@@ -83,12 +84,12 @@ async function poe2Setup(win: BrowserWindow): Promise<void> {
 
   try {
     await download(win, url, {
-      directory: app.getPath('temp'),
+      directory: app.getPath('exe'),
       filename: 'PathOfExile2_Setup.exe'
     })
 
     // 다운로드 완료 후 실행
-    const setupPath = path.join(app.getPath('temp'), 'PathOfExile2_Setup.exe')
+    const setupPath = path.join(app.getPath('exe'), 'PathOfExile2_Setup.exe')
     console.log('Setup Path:', setupPath)
     spawn(setupPath)
   } catch (error) {
