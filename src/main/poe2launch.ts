@@ -82,8 +82,13 @@ async function poe2Setup(win: BrowserWindow): Promise<void> {
   // https://patch.poe2.kakaogames.com/kg_live/Game/poe2/Install/PathOfExile2_Setup.exe
   const url = 'https://patch.poe2.kakaogames.com/kg_live/Game/poe2/Install/PathOfExile2_Setup.exe'
 
-  const targetDir = app.getAppPath()
+  const targetDir = app.getPath('temp')
   console.log('Target Directory:', targetDir)
+
+  // targetDir 경로가 존재하지 않는 경우 폴더 생성
+  if (!fs.existsSync(targetDir)) {
+    fs.mkdirSync(targetDir, { recursive: true })
+  }
 
   try {
     await download(win, url, {
