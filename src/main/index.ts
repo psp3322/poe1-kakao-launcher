@@ -65,6 +65,14 @@ function createWindow(): void {
   mainWindow.loadURL('https://poe2.game.daum.net')
 }
 
+// 파라메터 분석 (--in-process-gpu)
+const paramInUseGpu = process.argv.includes('--in-process-gpu')
+if (paramInUseGpu) {
+  app.commandLine.appendSwitch('in-process-gpu')
+  app.commandLine.appendSwitch('disable-gpu')
+  app.commandLine.appendSwitch('disable-software-rasterizer')
+}
+
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
