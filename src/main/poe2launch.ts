@@ -24,7 +24,7 @@ export function poe2Launch(win: BrowserWindow, url: string): void {
     dialog
       .showMessageBox(win, {
         type: 'question',
-        buttons: [executeKakao64, `${executeKakao64} (kakao 인자 없음)`],
+        buttons: [executeKakao64, `${executeKakao64} (글로벌 버전)`],
         defaultId: 0,
         title: 'Path of Exile 2',
         message: '어떤 클라이언트로 실행할까요?'
