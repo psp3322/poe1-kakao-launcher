@@ -1,6 +1,5 @@
-import { app, BrowserWindow, dialog } from 'electron'
+import { app, BrowserWindow, dialog, shell } from 'electron'
 import * as fs from 'fs'
-import { exec } from 'child_process'
 import * as path from 'path'
 import { download, CancelError } from 'electron-dl'
 
@@ -22,16 +21,20 @@ export function poe2Launch(win: BrowserWindow, url: string): void {
     dialog
       .showMessageBox(win, {
         type: 'question',
-        buttons: ['카카오버전 바로 실행', '런쳐 실행'],
+        buttons: [executeKakao, execute],
         defaultId: 0,
         title: 'Path of Exile 2',
         message: '어떤 클라이언트로 실행할까요?'
       })
       .then((response) => {
         if (response.response === 0) {
-          exec(`${path.join('C:\\Daum Games\\Path of Exile2', executeKakao)} --kakao ${userCode}`)
+          shell.openPath(
+            `${path.join('C:\\Daum Games\\Path of Exile2', executeKakao)} --kakao ${userCode}`
+          )
         } else {
-          exec(`${path.join('C:\\Daum Games\\Path of Exile2', execute)} --kakao ${userCode}`)
+          shell.openPath(
+            `${path.join('C:\\Daum Games\\Path of Exile2', execute)} --kakao ${userCode}`
+          )
         }
       })
   } else {
@@ -84,7 +87,7 @@ async function poe2Setup(win: BrowserWindow): Promise<void> {
     // 다운로드 완료 후 실행
     const setupPath = path.join(app.getPath('temp'), 'PathOfExile2_Setup.exe')
     console.log('Setup Path:', setupPath)
-    exec(setupPath)
+    shell.openPath(setupPath)
   } catch (error) {
     if (error instanceof CancelError) {
       console.log('Download is canceled')
