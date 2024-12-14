@@ -17,6 +17,8 @@ const log = require('electron-log')
 // 파라메터 분석 (--whisky)
 const paramUseInMacWhisky = process.argv.includes('--whisky')
 if (paramUseInMacWhisky) {
+  log.info('Whisky mode')
+  app.disableHardwareAcceleration()
   app.commandLine.appendArgument('--in-process-gpu')
   app.commandLine.appendArgument('--disable-gpu')
   app.commandLine.appendArgument('--no-sandbox')
