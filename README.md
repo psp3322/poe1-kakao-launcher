@@ -13,8 +13,8 @@
 5. 추가한 게임을 실행하여 우선 설치를 완료하고 POE2 홈페이지가 뜨면 우선 창을 닫으세요.
 6. 추가한 게임의 속성 중 다음 부분을 변경하세요.
 
-    - 실행파일: `{스팀에 추가한 게임의 compability 경로}/pfx/drive_c/POE2Lanucher/poe2-kakao-launcher.exe`
-    - 기본경로: `{스팀에 추가한 게임의 compability 경로}/pfx/drive_c/POE2Lanucher/`
+    - 대상: `{스팀에 추가한 게임의 compability 경로}/pfx/drive_c/POE2Lanucher/poe2-kakao-launcher.exe`
+    - 시작 모드: `{스팀에 추가한 게임의 compability 경로}/pfx/drive_c/POE2Lanucher/`
 
 7. 스팀덱을 게임 모드로 전환하세요.
 8. 방금 추가한 POE2를 실행하세요.
