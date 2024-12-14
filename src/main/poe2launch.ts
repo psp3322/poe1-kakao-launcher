@@ -17,14 +17,13 @@ export function poe2Launch(win: BrowserWindow, url: string): void {
   console.log('Token:', token)
   console.log('User Code:', userCode)
 
-  const executeKakao32 = 'PathOfExile_KG.exe'
   const executeKakao64 = 'PathOfExile_x64_KG.exe'
 
   if (poe2IsInstalled(executeKakao64)) {
     dialog
       .showMessageBox(win, {
         type: 'question',
-        buttons: [executeKakao64, executeKakao32, execute],
+        buttons: [executeKakao64, `${executeKakao64} (kakao 인자 없음)`],
         defaultId: 0,
         title: 'Path of Exile 2',
         message: '어떤 클라이언트로 실행할까요?'
@@ -38,18 +37,7 @@ export function poe2Launch(win: BrowserWindow, url: string): void {
           ])
         }
         if (response.response === 1) {
-          spawn(`${path.join('C:\\Daum Games\\Path of Exile2', executeKakao32)}`, [
-            '--kakao',
-            token,
-            userCode
-          ])
-        }
-        if (response.response === 2) {
-          spawn(`${path.join('C:\\Daum Games\\Path of Exile2', execute)}`, [
-            '--kakao',
-            token,
-            userCode
-          ])
+          spawn(`${path.join('C:\\Daum Games\\Path of Exile2', executeKakao64)}`)
         }
       })
   } else {

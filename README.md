@@ -25,3 +25,4 @@
 
 - https://gall.dcinside.com/mgallery/board/view/?id=steamdeck&no=130959
 - https://gist.github.com/tpdns90321/503f83247d8f1cec8fe70d69730b9f2f
+- https://gall.dcinside.com/mgallery/board/view/?id=steamdeck&no=131143
