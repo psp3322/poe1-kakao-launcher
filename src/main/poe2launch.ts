@@ -82,7 +82,7 @@ async function poe2Setup(win: BrowserWindow): Promise<void> {
   // https://patch.poe2.kakaogames.com/kg_live/Game/poe2/Install/PathOfExile2_Setup.exe
   const url = 'https://patch.poe2.kakaogames.com/kg_live/Game/poe2/Install/PathOfExile2_Setup.exe'
 
-  const targetDir = app.getPath('exe')
+  const targetDir = app.getAppPath()
   console.log('Target Directory:', targetDir)
 
   try {
