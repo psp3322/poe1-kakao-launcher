@@ -1,6 +1,6 @@
 import { app, BrowserWindow, dialog } from 'electron'
 import * as fs from 'fs'
-import { exec, execFile, spawn } from 'child_process'
+import { spawn } from 'child_process'
 import * as path from 'path'
 import { download, CancelError } from 'electron-dl'
 
@@ -17,45 +17,32 @@ export function poe2Launch(win: BrowserWindow, url: string): void {
   console.log('Token:', token)
   console.log('User Code:', userCode)
 
-  const executeKakao = 'PathOfExile_x64_KG.exe'
-  const executeCmd = `"${path.join('C:\\Daum Games\\Path of Exile2', executeKakao)}" --kakao ${userCode}`
-  console.log('Execute Command:', executeCmd)
+  const executeKakao32 = 'PathOfExile_KG.exe'
+  const executeKakao64 = 'PathOfExile_x64_KG.exe'
 
-  if (poe2IsInstalled(executeKakao)) {
+  if (poe2IsInstalled(executeKakao64)) {
     dialog
       .showMessageBox(win, {
         type: 'question',
-        buttons: ['execFile', 'spawn2', 'exec'],
+        buttons: [executeKakao64, executeKakao32],
         defaultId: 0,
         title: 'Path of Exile 2',
         message: '어떤 클라이언트로 실행할까요?'
       })
       .then((response) => {
         if (response.response === 0) {
-          execFile(
-            `${path.join('C:\\Daum Games\\Path of Exile2', executeKakao)}`,
-            ['--kakao', userCode],
-            (error, stdout) => {
-              if (error) {
-                dialog.showMessageBox(win, {
-                  type: 'error',
-                  title: 'Path of Exile 2',
-                  message: '실행 중 오류가 발생했습니다\n\n' + error.message
-                })
-              }
-              console.log(stdout)
-            }
-          )
-        }
-        if (response.response === 1) {
-          spawn(`${path.join('C:\\Daum Games\\Path of Exile2', executeKakao)}`, [
+          spawn(`${path.join('C:\\Daum Games\\Path of Exile2', executeKakao64)}`, [
             '--kakao',
             token,
             userCode
           ])
         }
-        if (response.response === 2) {
-          exec(`"${path.join('C:\\Daum Games\\Path of Exile2', executeKakao)}" --kakao ${userCode}`)
+        if (response.response === 1) {
+          spawn(`${path.join('C:\\Daum Games\\Path of Exile2', executeKakao32)}`, [
+            '--kakao',
+            token,
+            userCode
+          ])
         }
       })
   } else {
@@ -66,7 +53,7 @@ export function poe2Launch(win: BrowserWindow, url: string): void {
         dialog.showMessageBox(win, {
           type: 'info',
           title: 'Path of Exile 2',
-          message: '설치가 완료되었습니다. 게임 시작 버튼을 다시 클릭하세요'
+          message: '설치 프로그램이 표시될것입니다. 설치 완료 후 게임 시작 버튼을 다시 클릭하세요'
         })
       })
       .catch((error) => {
@@ -96,7 +83,6 @@ function poe2IsInstalled(execute: string): boolean {
 async function poe2Setup(win: BrowserWindow): Promise<void> {
   // 다음 주소에서 클라이언트 설치파일 다운로드
   // https://patch.poe2.kakaogames.com/kg_live/Game/poe2/Install/PathOfExile2_Setup.exe
-
   const url = 'https://patch.poe2.kakaogames.com/kg_live/Game/poe2/Install/PathOfExile2_Setup.exe'
 
   try {
