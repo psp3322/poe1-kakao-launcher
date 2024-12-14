@@ -25,6 +25,12 @@ jobs:
       - name: Install Dependencies
         run: yarn install
 
+      - name: Generate Environment Variables File for Production
+        run: |
+          echo "GH_TOKEN=$GH_TOKEN" >> .env
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
       - name: build-linux
         if: matrix.os == 'ubuntu-latest'
         run: yarn run build:linux
