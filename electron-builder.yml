@@ -16,13 +16,13 @@ win:
   target:
     - nsis
     - portable
-  include:
-    - build/installer.nsh
 nsis:
   artifactName: ${name}-${version}-setup.${ext}
   shortcutName: ${productName}
   uninstallDisplayName: ${productName}
   createDesktopShortcut: always
+  include:
+    - build/installer.nsh
 mac:
   entitlementsInherit: build/entitlements.mac.plist
   extendInfo:
