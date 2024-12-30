@@ -62,7 +62,7 @@ function createWindow(): void {
 
   // HMR for renderer base on electron-vite cli.
   // Load the remote URL for development or the local html file for production.
-  mainWindow.loadURL('https://poe2.game.daum.net')
+  mainWindow.loadURL('https://pathofexile2.game.daum.net/start/poe2')
 }
 
 // This method will be called when Electron has finished
