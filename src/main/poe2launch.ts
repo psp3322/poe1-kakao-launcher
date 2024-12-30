@@ -24,7 +24,7 @@ export function poe2Launch(win: BrowserWindow, url: string): void {
     dialog
       .showMessageBox(win, {
         type: 'question',
-        buttons: [executeKakao64, `${executeKakao64} (글로벌 버전)`, '게임 폰트 변경'],
+        buttons: [executeKakao64, `${executeKakao64} (글로벌 버전)`],
         defaultId: 0,
         title: 'Path of Exile 2',
         message: '어떤 클라이언트로 실행할까요?'
@@ -40,29 +40,29 @@ export function poe2Launch(win: BrowserWindow, url: string): void {
             cwd: gamePath
           })
         }
-        if (response.response === 2) {
-          // 폰트 선택창 표시
-          dialog
-            .showOpenDialog(win, {
-              properties: ['openFile'],
-              filters: [{ name: 'Fonts', extensions: ['ttf'] }],
-              title: 'Path of Exile 2 폰트 변경',
-              message: '적용하실 폰트를 선택하세요. 원복은 취소를 해주세요',
-              defaultPath: 'Z:\\home\\deck\\'
-            })
-            .then((result) => {
-              const fontPath = (result.filePaths && result.filePaths[0]) || ''
-              // 취소한 경우 폰트 원복 절차 진행
-              if (result.canceled || fontPath === '') {
-                // TODO: 폰트 원복
-                poe2RestoreFont(win)
-                return
-              }
+        // if (response.response === 2) {
+        //   // 폰트 선택창 표시
+        //   dialog
+        //     .showOpenDialog(win, {
+        //       properties: ['openFile'],
+        //       filters: [{ name: 'Fonts', extensions: ['ttf'] }],
+        //       title: 'Path of Exile 2 폰트 변경',
+        //       message: '적용하실 폰트를 선택하세요. 원복은 취소를 해주세요',
+        //       defaultPath: 'Z:\\home\\deck\\'
+        //     })
+        //     .then((result) => {
+        //       const fontPath = (result.filePaths && result.filePaths[0]) || ''
+        //       // 취소한 경우 폰트 원복 절차 진행
+        //       if (result.canceled || fontPath === '') {
+        //         // TODO: 폰트 원복
+        //         poe2RestoreFont(win)
+        //         return
+        //       }
 
-              // 폰트 변경 진행
-              poe2ChangeFont(win, fontPath)
-            })
-        }
+        //       // 폰트 변경 진행
+        //       poe2ChangeFont(win, fontPath)
+        //     })
+        // }
       })
   } else {
     // 설치
