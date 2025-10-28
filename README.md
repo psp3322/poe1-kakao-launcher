@@ -44,6 +44,8 @@
 - 기본적인 설치 방식은 원본 POE2 런처와 거의 동일합니다. 아래 원본 설치 가이드 게시물을 참고하시되, 모든 'POE2'를 'POE1'으로 바꿔서 생각하시면 됩니다.
 원본 설치 가이드 (디시인사이드 스팀덱 갤러리):
 - https://gall.dcinside.com/mgallery/board/view/?id=steamdeck&no=131576
+
+##기타참고링크
 - https://gall.dcinside.com/mgallery/board/view/?id=steamdeck&no=130959
 - https://gist.github.com/tpdns90321/503f83247d8f1cec8fe70d69730b9f2f
 - https://gall.dcinside.com/mgallery/board/view/?id=steamdeck&no=131143
