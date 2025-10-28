@@ -4,7 +4,7 @@ import { spawn } from 'child_process'
 import * as path from 'path'
 import { download, CancelError } from 'electron-dl'
 
-export function poe2Launch(win: BrowserWindow, url: string): void {
+export function poeLaunch(win: BrowserWindow, url: string): void {
   // Url Unescape
   const unescapedUrl = decodeURIComponent(url).replace('daumgamestarter://', '')
   console.log('Unescaped Url:', unescapedUrl)
@@ -86,7 +86,7 @@ export function poe2Launch(win: BrowserWindow, url: string): void {
   }
 }
 
-function poe2IsInstalled(execute: string): boolean {
+function poeIsInstalled(execute: string): boolean {
   // 기본 경로에서 설치되어 있는지 여부를 확인
   // C:\Daum Games\Path of Exile
   const installPath = 'C:\\Daum Games\\Path of Exile'
