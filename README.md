@@ -1,16 +1,22 @@
-# poe2-kakao-launcher
+# poe1-kakao-launcher
 이 프로젝트의 원본인 poe2-kakao-launcher를 만들어주신 Dr.Sashimi님께 진심으로 감사의 말씀을 드립니다. 
 해당 프로젝트는 Dr.Sashimi님의 앱을 기반으로 **Path of Exile 1 (카카오 버전)**을 스팀덱에서 실행할 수 있도록 수정한 버전입니다.
 스팀덱에 1을 플레이 하겠다는 집념으로 할려고 바이브코딩 총동원해서 노력하는 개발 개초보입니다...
 
 ## 설치방법
 
-스팀덱을 데스크탑 모드로 전환하세요.
-Firefox, 크롬 등의 웹브라우저로 **Releases 페이지**에서 최신 버전의 설치파일을 받으세요. (링크는 본인 Github에 맞게 수정해주세요)
-데스크탑 모드의 Steam을 실행하고, 다운받은 설치파일을 "Steam 외부게임 추가" 기능으로 추가하세요.
-추가한 게임의 호환성 모드를 **Proton 9.0 이상 (혹은 GE-Proton 9.x)**로 변경하세요.
-추가한 게임을 실행하여 우선 설치를 완료하고 POE 홈페이지가 뜨면 우선 창을 닫으세요.
-추가한 게임의 속성 중 다음 부분을 변경하세요.
+1.스팀덱을 데스크탑 모드로 전환하세요.
+
+2.Firefox, 크롬 등의 웹브라우저로 **Releases 페이지**에서 최신 버전의 설치파일을 받으세요. (링크는 본인 Github에 맞게 수정해주세요)
+
+3.데스크탑 모드의 Steam을 실행하고, 다운받은 설치파일을 "Steam 외부게임 추가" 기능으로 추가하세요.
+
+4.추가한 게임의 호환성 모드를 **Proton 9.0 이상 (혹은 GE-Proton 9.x)**로 변경하세요.
+
+5.추가한 게임을 실행하여 우선 설치를 완료하고 POE 홈페이지가 뜨면 우선 창을 닫으세요.
+
+6.추가한 게임의 속성 중 다음 부분을 변경하세요.
+
 대상: /home/deck/.local/share/Steam/steamapps/compatdata/(랜덤숫자)/pfx/drive_c/POE1Launcher/poe1-kakao-launcher.exe
 시작 위치: /home/deck/.local/share/Steam/steamapps/compatdata/(랜덤숫자)/pfx/drive_c/POE1Launcher/
 ※ 참고: 랜덤숫자는 덱마다 다르니 최근 수정된 날짜 기준으로 정렬해서 찾으면 편합니다. POE1Launcher 같은 폴더명은 실제 설치된 경로를 직접 확인하고 수정해주세요.
