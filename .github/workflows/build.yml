@@ -1,7 +1,5 @@
-# 설명: 이 워크플로우의 이름입니다. POE1으로 알기 쉽게 변경했습니다.
 name: Build POE1 Kakao Launcher
 
-# 트리거: 'main' 브랜치에 코드가 푸시(업데이트)되거나, 수동으로 실행할 때 작동합니다.
 on:
   push:
     branches: [ main ]
@@ -9,32 +7,26 @@ on:
 
 jobs:
   build:
-    # 윈도우 환경에서 빌드를 실행합니다.
     runs-on: windows-latest
 
     steps:
-      # 1. 내 저장소의 코드를 가상 환경으로 가져옵니다. (최신 버전 v4 사용)
       - name: Check out Git repository
         uses: actions/checkout@v4
 
-      # 2. Node.js 환경을 설정합니다. (최신 버전 v4 사용)
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: 'yarn' # npm 대신 yarn 캐시를 사용하도록 변경
+          cache: 'yarn'
 
-      # 3. yarn을 사용해 필요한 라이브러리를 설치합니다.
       - name: Install Dependencies
         run: yarn install
 
-      # 4. yarn을 사용해 윈도우용으로 빌드합니다.
       - name: Build for Windows
         run: yarn run build:win
 
-      # 5. 빌드 결과물을 업로드하여 다운로드할 수 있게 만듭니다. (최신 버전 v4 사용)
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: poe1-launcher-windows
-          path: release/*.exe
+          path: dist/*.exe # 이 경로를 수정했습니다.
