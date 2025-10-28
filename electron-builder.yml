@@ -1,5 +1,9 @@
-appId: com.drsasimi.poe2launcher
-productName: poe2-kakao-launcher
+# 1. 앱 ID 변경: 시스템이 앱을 식별하는 고유 ID입니다. poe2를 poe1로 변경합니다.
+appId: com.drsasimi.poe1launcher
+
+# 2. 제품 이름 변경: 설치 후 프로그램 목록이나 창 제목에 표시될 이름입니다.
+productName: poe1-kakao-launcher
+
 directories:
   buildResources: build
 files:
@@ -11,13 +15,19 @@ files:
   - '!{tsconfig.json,tsconfig.node.json,tsconfig.web.json}'
 asarUnpack:
   - resources/**
+
 win:
-  executableName: poe2-kakao-launcher
+  # 3. 실행 파일 이름 변경: 빌드 후 생성될 .exe 파일의 이름입니다.
+  executableName: poe1-kakao-launcher
+
 nsis:
+  # 아래 항목들은 productName을 따라 자동으로 이름이 변경되므로 수정할 필요가 없습니다.
   artifactName: ${name}-${version}-setup.${ext}
   shortcutName: ${productName}
   uninstallDisplayName: ${productName}
   createDesktopShortcut: always
+
+# Mac, Dmg, Linux, AppImage 설정은 그대로 둡니다.
 mac:
   entitlementsInherit: build/entitlements.mac.plist
   extendInfo:
@@ -37,10 +47,15 @@ linux:
   category: Utility
 appImage:
   artifactName: ${name}-${version}.${ext}
+
 npmRebuild: false
-publish:
-  provider: github
-  owner: drsasimi
-  repo: poe2-kakao-launcher
+
+# 4. 자동 배포 기능 제거: GH_TOKEN 오류의 원인이었던 publish 섹션을 완전히 제거하여
+#    빌드가 불필요하게 실패하는 것을 방지합니다.
+# publish:
+#   provider: github
+#   owner: drsasimi
+#   repo: poe2-kakao-launcher
+
 electronDownload:
   mirror: https://npmmirror.com/mirrors/electron/
