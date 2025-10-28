@@ -45,7 +45,7 @@
 원본 설치 가이드 (디시인사이드 스팀덱 갤러리):
 - https://gall.dcinside.com/mgallery/board/view/?id=steamdeck&no=131576
 
-##기타참고링크
+## 기타참고링크
 - https://gall.dcinside.com/mgallery/board/view/?id=steamdeck&no=130959
 - https://gist.github.com/tpdns90321/503f83247d8f1cec8fe70d69730b9f2f
 - https://gall.dcinside.com/mgallery/board/view/?id=steamdeck&no=131143
