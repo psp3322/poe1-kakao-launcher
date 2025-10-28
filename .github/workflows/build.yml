@@ -1,0 +1,26 @@
+name: Build POE1 Launcher for Windows
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm install
+      - name: Build for Windows
+        run: npm run build:win
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: poe1-launcher-windows
+          path: release/*.exe
