@@ -66,7 +66,7 @@ export function poeLaunch(win: BrowserWindow, url: string): void {
       })
   } else {
     // 설치
-    poe2Setup(win)
+    poeSetup(win)
       .then(() => {
         // 완료 메시지 출력
         dialog.showMessageBox(win, {
@@ -100,7 +100,7 @@ function poeIsInstalled(execute: string): boolean {
   return false
 }
 
-async function poe2Setup(win: BrowserWindow): Promise<void> {
+async function poeSetup(win: BrowserWindow): Promise<void> {
   // 다음 주소에서 클라이언트 설치파일 다운로드, 1로 바꿈
   // https://poe.gdn.gamecdn.net/kg_live/Game/poe/Install/PathOfExile_Setup.exe
   const url = 'https://poe.gdn.gamecdn.net/kg_live/Game/poe/Install/PathOfExile_Setup.exe'
@@ -134,84 +134,4 @@ async function poe2Setup(win: BrowserWindow): Promise<void> {
   }
 }
 
-// function poe2ChangeFont(win: BrowserWindow, fontPath: string): void {
-//   // 먼저 선택된 경로의 폰트를 C:\\Windows\\Fonts 폴더로 'poe2.ttf' 이름으로 복사
-//   fs.copyFile(fontPath, 'C:\\Windows\\Fonts\\poe2.ttf', (error) => {
-//     if (error) {
-//       console.error('poe2ChangeFont::Copy:: ', error)
-//       throw error
-//     }
 
-//     // 레지스트리 변경
-//     // HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts
-//     // "POE2 Launcher Font"="poe2.ttf"
-
-//     const targetDir = app.getPath('temp')
-//     console.log('Target Directory:', targetDir)
-
-//     // targetDir 경로가 존재하지 않는 경우 폴더 생성
-//     if (!fs.existsSync(targetDir)) {
-//       fs.mkdirSync(targetDir, { recursive: true })
-//     }
-
-//     // 레지스트리 변경 스크립트 생성
-//     const regScript = path.join(targetDir, 'poe2_font.reg')
-//     fs.writeFileSync(
-//       regScript,
-//       'Windows Registry Editor Version 5.00\n\n' +
-//         '[HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Fonts]\n' +
-//         '"POE2 Launcher Font"="poe2.ttf"\n\n' +
-//         '[HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\FontSubstitutes]\n' +
-//         '"Noto Sans CJK TC"="POE2 Launcher Font"\n' +
-//         '"Spoqa Han Sans Neo"="POE2 Launcher Font"\n'
-//     )
-
-//     // 레지스트리 변경 스크립트 실행
-//     spawn('regedit', ['/s', regScript])
-
-//     // 완료 메시지 출력
-//     dialog.showMessageBox(win, {
-//       type: 'info',
-//       title: 'Path of Exile 2',
-//       message: '폰트 변경이 완료되었습니다. 런쳐를 재시작해주세요'
-//     })
-//   })
-// }
-
-// function poe2RestoreFont(win: BrowserWindow) {
-//   // 레지스트리 항목 삭제
-//   // HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts
-//   // "POE2 Launcher Font" 삭제
-//   // HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontSubstitutes
-//   // "Noto Sans CJK TC" 및 "Spoqa Han Sans Neo" 삭제
-
-//   const targetDir = app.getPath('temp')
-//   console.log('Target Directory:', targetDir)
-
-//   // targetDir 경로가 존재하지 않는 경우 폴더 생성
-//   if (!fs.existsSync(targetDir)) {
-//     fs.mkdirSync(targetDir, { recursive: true })
-//   }
-
-//   // 레지스트리 변경 스크립트 생성
-//   const regScript = path.join(targetDir, 'poe2_font_restore.reg')
-//   fs.writeFileSync(
-//     regScript,
-//     'Windows Registry Editor Version 5.00\n\n' +
-//       '[HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Fonts]\n' +
-//       '"POE2 Launcher Font"=-\n\n' +
-//       '[HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\FontSubstitutes]\n' +
-//       '"Noto Sans CJK TC"=-\n' +
-//       '"Spoqa Han Sans Neo"=-\n'
-//   )
-
-//   // 레지스트리 변경 스크립트 실행
-//   spawn('regedit', ['/s', regScript])
-
-//   // 완료 메시지 출력
-//   dialog.showMessageBox(win, {
-//     type: 'info',
-//     title: 'Path of Exile 2',
-//     message: '폰트 변경이 원복되었습니다. 런쳐를 재시작해주세요'
-//   })
-// }
