@@ -20,7 +20,7 @@ export function poeLaunch(win: BrowserWindow, url: string): void {
   const gamePath = 'C:\\Daum Games\\Path of Exile'
   const executeKakao64 = 'PathOfExile_KG.exe'
 
-  if (poe2IsInstalled(executeKakao64)) {
+  if (poeIsInstalled(executeKakao64)) {
     dialog
       .showMessageBox(win, {
         type: 'question',
