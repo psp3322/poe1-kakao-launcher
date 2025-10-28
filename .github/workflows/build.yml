@@ -9,9 +9,9 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
           cache: 'npm'
@@ -20,7 +20,18 @@ jobs:
       - name: Build for Windows
         run: npm run build:win
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4 # 이 부분을 v3에서 v4로 수정했습니다.
         with:
           name: poe1-launcher-windows
           path: release/*.exe
+```*(다른 도구들도 최신 버전인 v4로 함께 업데이트했습니다.)*
+
+### 다음 단계
+
+1.  수정한 `build.yml` 파일을 **저장(Commit & Push)** 하세요.
+2.  다시 GitHub 저장소의 **`Actions`** 탭으로 이동하세요.
+3.  새로운 빌드가 자동으로 시작될 것입니다.
+4.  이제 `upload-artifact` 버전 문제가 해결되었으므로 빌드가 끝까지 성공적으로 완료될 것입니다.
+5.  초록색 체크 표시를 확인하고 `Artifacts`에서 결과물을 다운로드하세요.
+
+이제 거의 다 왔습니다! 이 수정만 하면 원하던 설치 파일을 얻으실 수 있을 겁니다.
