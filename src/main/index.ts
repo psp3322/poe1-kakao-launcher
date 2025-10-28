@@ -2,7 +2,7 @@ import { app, BrowserWindow, ipcMain } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
-import { poe2Launch } from './poe2launch'
+import { poeLaunch } from './poelaunch'
 import electronUpdater, { type AppUpdater } from 'electron-updater'
 
 export function getAutoUpdater(): AppUpdater {
@@ -56,7 +56,7 @@ function createWindow(): void {
       // Origin Event Cancel
       event.preventDefault()
 
-      poe2Launch(mainWindow, url)
+      poeLaunch(mainWindow, url)
     }
   })
 
