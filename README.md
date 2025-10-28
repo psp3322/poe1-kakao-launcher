@@ -1,7 +1,7 @@
 # poe1-kakao-launcher
 이 프로젝트의 원본인 poe2-kakao-launcher를 만들어주신 Dr.Sashimi님께 진심으로 감사의 말씀을 드립니다. 
 
-해당 프로젝트는 Dr.Sashimi님의 앱을 기반으로 **Path of Exile 1 (카카오 버전)**을 스팀덱에서 실행할 수 있도록 수정한 버전입니다.
+해당 프로젝트는 Dr.Sashimi님의 앱을 기반으로 Path of Exile 1 (카카오 버전)을 스팀덱에서 실행할 수 있도록 수정한 버전입니다.
 
 스팀덱에 1을 플레이 하겠다는 집념으로 할려고 바이브코딩 총동원해서 노력하는 개발 개초보입니다...
 
@@ -20,6 +20,7 @@
 6.추가한 게임의 속성 중 다음 부분을 변경하세요.
 
 대상: /home/deck/.local/share/Steam/steamapps/compatdata/(랜덤숫자)/pfx/drive_c/POE1Launcher/poe1-kakao-launcher.exe
+
 시작 위치: /home/deck/.local/share/Steam/steamapps/compatdata/(랜덤숫자)/pfx/drive_c/POE1Launcher/
 
 ※ 참고: 랜덤숫자는 덱마다 다르니 최근 수정된 날짜 기준으로 정렬해서 찾으면 편합니다. POE1Launcher 같은 폴더명은 실제 설치된 경로를 직접 확인하고 수정해주세요.
@@ -40,7 +41,9 @@
 - 실행시 "어떤 클라이언트로 실행할까요?" 질문에서 글로벌 버전은 서울 게이트웨이 하다가 **"버전정보가 맞지 않습니다"** 같은 특수상황에서만 사용하세요. 일반적으로는 글로벌 버전을 쓰실 필요가 없습니다.
 
 ## 참고 사이트
-
+- 기본적인 설치 방식은 원본 POE2 런처와 거의 동일합니다. 아래 원본 설치 가이드 게시물을 참고하시되, 모든 'POE2'를 'POE1'으로 바꿔서 생각하시면 됩니다.
+원본 설치 가이드 (디시인사이드 스팀덱 갤러리):
+- https://gall.dcinside.com/mgallery/board/view/?id=steamdeck&no=131576
 - https://gall.dcinside.com/mgallery/board/view/?id=steamdeck&no=130959
 - https://gist.github.com/tpdns90321/503f83247d8f1cec8fe70d69730b9f2f
 - https://gall.dcinside.com/mgallery/board/view/?id=steamdeck&no=131143
