@@ -62,7 +62,7 @@ function createWindow(): void {
 
   // HMR for renderer base on electron-vite cli.
   // Load the remote URL for development or the local html file for production.
-  mainWindow.loadURL('https://pathofexile2.game.daum.net')
+  mainWindow.loadURL('https://poe.game.daum.net')
 }
 
 // This method will be called when Electron has finished
@@ -70,7 +70,7 @@ function createWindow(): void {
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
   // Set app user model id for windows
-  electronApp.setAppUserModelId('com.drsasimi.poe2launcher')
+  electronApp.setAppUserModelId('com.drsasimi.poelauncher')
 
   // Default open or close DevTools by F12 in development
   // and ignore CommandOrControl + R in production.
@@ -115,3 +115,4 @@ getAutoUpdater().on('update-downloaded', () => {
   log.info('Ready-for-update')
   getAutoUpdater().quitAndInstall()
 })
+
