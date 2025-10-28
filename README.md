@@ -19,12 +19,17 @@
 
 대상: /home/deck/.local/share/Steam/steamapps/compatdata/(랜덤숫자)/pfx/drive_c/POE1Launcher/poe1-kakao-launcher.exe
 시작 위치: /home/deck/.local/share/Steam/steamapps/compatdata/(랜덤숫자)/pfx/drive_c/POE1Launcher/
+
 ※ 참고: 랜덤숫자는 덱마다 다르니 최근 수정된 날짜 기준으로 정렬해서 찾으면 편합니다. POE1Launcher 같은 폴더명은 실제 설치된 경로를 직접 확인하고 수정해주세요.
 스팀덱을 게임 모드로 전환하세요.
-방금 추가한 Path of Exile을 실행하세요.
-동일하게 POE 홈페이지가 표시되면 로그인을 실행하고 웹페이지에서 게임을 실행하세요.
-실행 시, "설치 프로그램"이 표시되면 경로 건드리지 않고 그대로 설치 후, 다시 게임을 실행해 주세요.
-실행 시, "어떤 클라이언트로 실행할까요?" 가 표시되면 첫번째 "PathOfExile_x64_KG.exe" 로 실행해주세요.
+
+7.방금 추가한 Path of Exile을 실행하세요.
+
+8.동일하게 POE 홈페이지가 표시되면 로그인을 실행하고 웹페이지에서 게임을 실행하세요.
+
+9.실행 시, "설치 프로그램"이 표시되면 경로 건드리지 않고 그대로 설치 후, 다시 게임을 실행해 주세요.
+
+10.실행 시, "어떤 클라이언트로 실행할까요?" 가 표시되면 첫번째 "PathOfExile_x64_KG.exe" 로 실행해주세요.
 
 ## 유의사항
 
